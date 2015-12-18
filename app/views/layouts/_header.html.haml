@@ -1,0 +1,22 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  #navbar
+    .navbar-header
+      %a{ :"ui-sref" => "/", class: 'navbar-brand' }
+        JWT auth
+    #navbar
+      %ul.nav.navbar-nav.pull-right{ :"ng-controller" => "Sessions" }
+        %li.dropdown{ :"ng-show" => "user.signedIn" }
+          %a.dropdown-toggle{ :"data-toggle" => "dropdown", :"ui-sref" => "#", id: "dropdown-menu" }
+            {{user.email}}
+            %span.caret
+          %ul.dropdown-menu{ role: "menu" }
+            %li
+              %a{ :"ui-sref" => "#", :"ng-click" => 'signOut()', id: 'sign-out' }
+                Sign out
+
+        %li{ :"ng-show" => "!user.signedIn" }
+          %a{ :"ui-sref" => "sign_in" }
+            Log In
+        %li{ :"ng-show" => "!user.signedIn" }
+          %a{ :"ui-sref" => "sign_up" }
+            Sign Up

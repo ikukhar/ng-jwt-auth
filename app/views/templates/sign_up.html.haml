@@ -1,0 +1,47 @@
+%div{:"ng-controller" => "Registrations"}
+  %form{ :"ng-submit" => "register()",
+         :role => "form",
+         :name => 'form',
+         :novalidate => true }
+
+    .form-group{ :"ng-class" => "{ 'has-error': form.email.$touched && form.email.$invalid }" }
+      %label{ :for => "email" } Email
+      %input#email.form-control{ :name => "email",
+                                 :'ng-model' => 'data.email',
+                                 :required => true,
+                                 :type => "email"}
+    .form-group
+      %button.btn.btn-primary.btn-lg{ :type => "submit", :"ng-disabled" => "form.$invalid" } Sign Up
+  -#     .help-block{ :"ng-messages" => "form.email.$error", :"ng-if" => "form.email.$touched" }
+  -#       %div{ :"ng-message" => "required" }  This field is required
+  -#       %div{ :"ng-message" => "email" } Your email address is invalid
+  -#
+  -#   .form-group{ :"ng-class" => "{ 'has-error': form.password.$touched && form.password.$invalid }" }
+  -#     %label{ :for => "password" } Password
+  -#     %input#password.form-control{ :name => "password",
+  -#                                   :"ng-model" => "registrationForm.password",
+  -#                                   :type => "password",
+  -#                                   :required => true,
+  -#                                   :"ng-minlength" => Devise.password_length.first,
+  -#                                   :"ng-maxlength" => Devise.password_length.last }
+  -#     .help-block{ :"ng-messages" => "form.password.$error", :"ng-if" => "form.password.$touched" }
+  -#       %div{ :"ng-message" => "required" }  This field is required
+  -#       %div{ :"ng-message" => "minlength" }
+  -#         ="Password must be over #{Devise.password_length.first} characters"
+  -#       %div{ :"ng-message" => "maxlength" }
+  -#         ="Password must not exceed #{Devise.password_length.first} characters"
+  -#
+  -#   .form-group{ :"ng-class" => "{ 'has-error': form.password_confirmation.$touched && form.password_confirmation.$invalid }" }
+  -#     %label{ :for => "password_confirmation" } Password confirmation
+  -#     %input#password_confirmation.form-control{ :name => "password_confirmation",
+  -#                                                :"ng-model" => "registrationForm.password_confirmation",
+  -#                                                :type => "password",
+  -#                                                :"ng-minlength" => Devise.password_length.first,
+  -#                                                :"ng-maxlength" => Devise.password_length.last }
+  -#     .help-block{ :"ng-messages" => "form.password.$error", :"ng-if" => "form.password.$touched" }
+  -#       %div{ :"ng-message" => "required" }  This field is required
+  -#       %div{ :"ng-message" => "minlength" }
+  -#         ="Password must not less #{Devise.password_length.first} characters"
+  -#       %div{ :"ng-message" => "maxlength" }
+  -#         ="Password must not exceed #{Devise.password_length.first} characters"
+  -#

@@ -1,0 +1,19 @@
+-#
+-#
+-# %div{ :"ng-controller" => "ProjectsController" }
+-#   =render 'add_project'
+-#
+-#   %ul.list-unstyled{ :"ui-sortable" => "sortableOptions", :"ng-model" => "projects" }
+-#     %li.project-form{ :"id" => "{{project.id}}", :"ng-repeat" => "project in projects" }
+-#       =render 'project'
+-#
+-#       %div{ :"ng-controller" => "TasksController" }
+-#         =render 'add_task'
+-#
+-#         %ul.list-unstyled{ :"ui-sortable" => "sortableOptions", :"ng-model" => "tasks" }
+-#           %li.wrap-task-form.animate-enter{ :"ng-repeat" => "task in tasks" }
+-#             %div.task-form{ :"ng-class" => "{ 'open-task': task.openingTask }"}
+-#               =render 'task'
+-#
+-#               %div{ :"ng-controller" => "MessagesController" }
+-#                 =render 'messages'

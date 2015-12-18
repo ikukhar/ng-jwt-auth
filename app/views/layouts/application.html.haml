@@ -1,0 +1,18 @@
+!!!
+%html{ :"ng-app" => "jwt-auth" }
+
+  %head
+    %title JWT auth
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    %base{href: "/"}
+
+  %body{ :"ng-class" => "ng-cloak" }
+    =render partial: 'layouts/header'
+    .container
+      .col-md-8.col-md-offset-2
+        -# .alert.alert-danger{"ng-show" => "error", :role => "alert"}
+        -#   {{error}}
+
+        .ui-view
