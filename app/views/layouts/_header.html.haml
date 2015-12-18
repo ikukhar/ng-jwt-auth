@@ -5,14 +5,14 @@
         %a{  :"ng-href" => "/", class: 'navbar-brand' }
           JWT auth
       #navbar
-        %ul.nav.navbar-nav.pull-right{ :"ng-controller" => "Sessions" }
+        %ul.nav.navbar-nav.pull-right{ :"ng-controller" => "Auth" }
           %li.dropdown{ :"ng-show" => "user.signedIn" }
             %a.dropdown-toggle{ :"data-toggle" => "dropdown", id: "dropdown-menu", :"ng-href" => '#' }
               {{user.email}}
               %span.caret
             %ul.dropdown-menu{ role: "menu" }
               %li
-                %a{ :"ng-href" => '#', :"ng-click" => 'signOut()', id: 'sign-out' }
+                %a{ :"ng-href" => '#', :"ng-click" => 'logout()', id: 'sign-out' }
                   Sign out
 
           %li{ :"ng-show" => "!user.signedIn" }
