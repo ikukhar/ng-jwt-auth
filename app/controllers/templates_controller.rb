@@ -2,12 +2,12 @@ class TemplatesController < ApplicationController
   def start
   end
 
-  def sign_in
-    render 'sign_in', layout: nil
+  def login
+    render 'login', layout: nil
   end
 
-  def sign_up
-    render 'sign_up', layout: nil
+  def register
+    render 'register', layout: nil
   end
 
   def user

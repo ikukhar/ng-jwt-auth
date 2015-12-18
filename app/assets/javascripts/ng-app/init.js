@@ -16,12 +16,12 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, Notificati
       //   ]
       // }
     })
-    .when('/sign_in', {
-      templateUrl: '/templates/sign_in'
+    .when('/login', {
+      templateUrl: '/templates/login'
         //  controller: 'SessionsController'
     })
-    .when('/sign_up', {
-      templateUrl: '/templates/sign_up'
+    .when('/register', {
+      templateUrl: '/templates/register'
         //    controller: 'UserRegistrationsController'
     })
     .when('/user', {
@@ -33,7 +33,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, Notificati
     //   })
 
   $locationProvider.html5Mode(true);
-  //$httpProvider.interceptors.push('AuthInterceptor');
+  $httpProvider.interceptors.push('AuthInterceptor');
 
   NotificationProvider.setOptions({
     startTop: 55
@@ -60,7 +60,7 @@ app.run(['$rootScope', 'Auth', '$location', 'Notification',
 
     $rootScope.$on('logout', function(event) {
       $rootScope.setUser();
-      $location.path('/');
+      $location.path('/login');
     });
 
     $rootScope.$on('errorMessage', function(event, message) {

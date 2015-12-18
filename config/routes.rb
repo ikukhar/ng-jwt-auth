@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'templates#start'
-  get 'templates/sign_in', to: 'templates#sign_in'
-  get 'templates/sign_up', to: 'templates#sign_up'
+  get 'templates/login', to: 'templates#login'
+  get 'templates/register', to: 'templates#register'
   get 'templates/user',    to: 'templates#user'
 
   post 'register', to: 'auth#register'
