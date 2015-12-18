@@ -12,7 +12,11 @@
     =render partial: 'layouts/header'
     .container
       .col-md-8.col-md-offset-2
+        -# .ui-notification
+        -#   %h3{:"ng-show" => "title", :"ng-bind-html" => "title"}
+        -#   .message{ :"ng-bind-html" => "message"}
+
         -# .alert.alert-danger{"ng-show" => "error", :role => "alert"}
         -#   {{error}}
 
-        .ui-view
+        .ng-view

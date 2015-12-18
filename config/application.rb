@@ -28,5 +28,6 @@ module NgAuth
     config.generators.helper = false
 
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+    config.autoload_paths += %W(#{config.root}/lib/tools)
   end
 end

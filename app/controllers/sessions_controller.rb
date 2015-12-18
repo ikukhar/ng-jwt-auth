@@ -1,18 +1,17 @@
 class SessionsController < ApplicationController
 
   def create
-    print user_params
-    # @project = Project.new(project_params)
-    # if @project.save
-      # render json: @project, status: :created
-    # else
-    #   render json: @project.errors, status: :unprocessable_entity
-    # end
+    @user = User.find_by(email: session_params[:email])
+    if @user
+      render json: { token: JsonWebToken.encode(user_id: @user.id), user: @user }, status: :created
+    else
+      render json: {message: 'User not found!'}, status: :unauthorized
+    end
   end
 
   private
-  def user_params
-    params.require(:user).permit(:email)
+  def session_params
+    params.require(:session).permit(:email)
   end
 
 end

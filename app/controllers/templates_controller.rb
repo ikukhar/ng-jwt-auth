@@ -1,10 +1,5 @@
 class TemplatesController < ApplicationController
-
   def start
-  end
-
-  def index
-    render 'index', layout: nil
   end
 
   def sign_in
@@ -13,5 +8,9 @@ class TemplatesController < ApplicationController
 
   def sign_up
     render 'sign_up', layout: nil
+  end
+
+  def user
+    render 'user', layout: nil
   end
 end

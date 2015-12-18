@@ -1,5 +1,5 @@
 %div{:"ng-controller" => "Sessions"}
-  %form{ :"ng-submit" => "signin(form)",
+  %form{ :"ng-submit" => "signIn()",
          :role => "form",
          :name => 'form',
          :novalidate => true }
@@ -7,7 +7,7 @@
     .form-group{ :"ng-class" => "{ 'has-error': form.email.$touched && form.email.$invalid }" }
       %label{ :for => "email" } Email
       %input#email.form-control{ :name => "email",
-                                 :"ng-model" => "form.email",
+                                 :"ng-model" => "data.email",
                                  :type => "email",
                                  :required => true }
       -# .help-block{ :"ng-messages" => "form.email.$error", :"ng-if" => "form.email.$touched" }

@@ -48,3 +48,4 @@ end
 gem 'haml-rails', "~> 0.9"
 gem "bower-rails", "~> 0.10.0"
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'jwt'

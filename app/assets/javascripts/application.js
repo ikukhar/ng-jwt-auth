@@ -16,8 +16,9 @@
 //= require bootstrap-sprockets
 
 //= require angular
-//= require angular-ui-router
+//= require angular-route
+//= require angular-local-storage
+//= require angular-ui-notification
 //= require ng-app/init
 
-//= require angular
 //= require_tree .

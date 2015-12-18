@@ -1,8 +1,8 @@
-function Registrations(Auth, $state, $scope) {
-  $scope.register = function(form) {
+function Registrations(Auth, $location, $scope) {
+  $scope.signUp = function(form) {
     if ($scope.form.$valid) {
       Auth.register($scope.data).then(function() {
-        $state.go('home');
+        $location.path('/user');
       }, function(err) {
       //  vm.errors.push(err);
       });
@@ -10,5 +10,5 @@ function Registrations(Auth, $state, $scope) {
   };
 };
 
-Registrations.$inject = ['Auth', '$state', '$scope'];
+Registrations.$inject = ['Auth', '$location', '$scope'];
 app.controller('Registrations', Registrations);

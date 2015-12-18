@@ -12,10 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require angular-ui-notification
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
-
- body {
-   padding: 55px;
- }
+@import "bootstrap-sprockets";
+@import "bootstrap";
+body {
+  padding: 55px;
+}

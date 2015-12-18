@@ -1,15 +1,15 @@
-function Sessions($state, $scope) {
-  $scope.user = {
-    signedIn: false,
-    email: 'test@i.ua'
+function Sessions(Auth, $scope) {
+
+  $scope.signIn = function(form) {
+    if ($scope.form.$valid) {
+      Auth.login($scope.data);
+    }
   };
-  $scope.signin = function(form) {
-    console.log(form)
+  $scope.signOut = function() {
+    Auth.logout();
   };
-  $scope.authenticate = function(){
-    console.log("authenticate")
-  };
+
 };
 
-Sessions.$inject = ['$state', '$scope'];
+Sessions.$inject = ['Auth', '$scope'];
 app.controller('Sessions', Sessions);

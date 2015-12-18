@@ -1,22 +1,23 @@
 %nav.navbar.navbar-inverse.navbar-fixed-top
-  #navbar
-    .navbar-header
-      %a{ :"ui-sref" => "/", class: 'navbar-brand' }
-        JWT auth
+  .col-md-8.col-md-offset-2
     #navbar
-      %ul.nav.navbar-nav.pull-right{ :"ng-controller" => "Sessions" }
-        %li.dropdown{ :"ng-show" => "user.signedIn" }
-          %a.dropdown-toggle{ :"data-toggle" => "dropdown", :"ui-sref" => "#", id: "dropdown-menu" }
-            {{user.email}}
-            %span.caret
-          %ul.dropdown-menu{ role: "menu" }
-            %li
-              %a{ :"ui-sref" => "#", :"ng-click" => 'signOut()', id: 'sign-out' }
-                Sign out
+      .navbar-header
+        %a{  :"ng-href" => "/", class: 'navbar-brand' }
+          JWT auth
+      #navbar
+        %ul.nav.navbar-nav.pull-right{ :"ng-controller" => "Sessions" }
+          %li.dropdown{ :"ng-show" => "user.signedIn" }
+            %a.dropdown-toggle{ :"data-toggle" => "dropdown", id: "dropdown-menu", :"ng-href" => '#' }
+              {{user.email}}
+              %span.caret
+            %ul.dropdown-menu{ role: "menu" }
+              %li
+                %a{ :"ng-href" => '#', :"ng-click" => 'signOut()', id: 'sign-out' }
+                  Sign out
 
-        %li{ :"ng-show" => "!user.signedIn" }
-          %a{ :"ui-sref" => "sign_in" }
-            Log In
-        %li{ :"ng-show" => "!user.signedIn" }
-          %a{ :"ui-sref" => "sign_up" }
-            Sign Up
+          %li{ :"ng-show" => "!user.signedIn" }
+            %a{ :"ng-href" => "/sign_in" }
+              Log In
+          %li{ :"ng-show" => "!user.signedIn" }
+            %a{ :"ng-href" => "/sign_up" }
+              Sign Up
