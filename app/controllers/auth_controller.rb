@@ -1,5 +1,7 @@
 class AuthController < ApplicationController
 
+  skip_before_action :authenticate
+
   def register
     @user = User.new(auth_params)
     if @user.save

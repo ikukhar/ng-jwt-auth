@@ -12,6 +12,9 @@
               %span.caret
             %ul.dropdown-menu{ role: "menu" }
               %li
+                %a{ :"ng-href" => '/user'}
+                  My account
+              %li
                 %a{ :"ng-href" => '#', :"ng-click" => 'logout()', id: 'sign-out' }
                   Sign out
 

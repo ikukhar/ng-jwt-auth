@@ -1,1 +1,6 @@
-User {{user.email}} authentificated
+Client:
+{{user.email}}
+%br
+Server:
+-if @current_user
+  =@current_user.email

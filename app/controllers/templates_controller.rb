@@ -1,4 +1,7 @@
 class TemplatesController < ApplicationController
+
+  skip_before_action :authenticate
+
   def start
   end
 
@@ -10,7 +13,4 @@ class TemplatesController < ApplicationController
     render 'register', layout: nil
   end
 
-  def user
-    render 'user', layout: nil
-  end
 end

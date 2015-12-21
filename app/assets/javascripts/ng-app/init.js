@@ -8,29 +8,19 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, Notificati
 
   $routeProvider
     .when('/', {
-      //  templateUrl: '/templates/start'
-      //  controller: 'ProjectsController',
-      // resolve: {
-      //   auth: ['$auth', ($auth) ->
-      //     return $auth.validateUser();
-      //   ]
-      // }
     })
     .when('/login', {
       templateUrl: '/templates/login'
-        //  controller: 'SessionsController'
     })
     .when('/register', {
       templateUrl: '/templates/register'
-        //    controller: 'UserRegistrationsController'
     })
     .when('/user', {
       templateUrl: '/templates/user'
-        //    controller: 'UserRegistrationsController'
     })
-    //   .otherwise({
-    //      redirectTo: '/'
-    //   })
+    .otherwise({
+      redirectTo: '/'
+    })
 
   $locationProvider.html5Mode(true);
   $httpProvider.interceptors.push('AuthInterceptor');
@@ -41,8 +31,8 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, Notificati
 
 });
 
-app.run(['$rootScope', 'Auth', '$location', 'Notification',
-  function($rootScope, Auth, $location, Notification) {
+app.run(['$rootScope', 'Auth', '$location', 'Notification', '$window', '$http',
+  function($rootScope, Auth, $location, Notification, $window, $http) {
     $rootScope.setUser = function() {
       $rootScope.user = Auth.getUser();
     };
@@ -66,5 +56,14 @@ app.run(['$rootScope', 'Auth', '$location', 'Notification',
     $rootScope.$on('errorMessage', function(event, message) {
       Notification.error(message);
     });
+
+    $rootScope.$on('auth_error', function(event, message) {
+      Notification.error(message);
+      $location.path('/login');
+    });
+    // $rootScope.$on('$locationChangeStart', function(event, next, current) {
+    //   //alert('locationChangeStart')
+    // });
+    //
   }
 ]);

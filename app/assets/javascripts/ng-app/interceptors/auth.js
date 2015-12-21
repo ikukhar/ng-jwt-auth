@@ -1,12 +1,10 @@
-function AuthInterceptor($q, $location, localStorage) {
+function AuthInterceptor($q, $location, localStorage, $rootScope) {
   return {
     request: function(config) {
       var token;
-      console.log('reguest');
       if (localStorage.get('auth_token')) {
         token = localStorage.get('auth_token');
       }
-
       if (token) {
         config.headers.Authorization = 'Bearer ' + token;
       }
@@ -14,10 +12,9 @@ function AuthInterceptor($q, $location, localStorage) {
       return config;
     },
     responseError: function(response) {
-      console.log('responseError');
       if (response.status === 401 || response.status === 403) {
         localStorage.remove('auth_token');
-        $location.path('/login');
+        $rootScope.$emit('auth_error', 'Unauthorized!');
       }
 
       return $q.reject(response);
@@ -25,5 +22,5 @@ function AuthInterceptor($q, $location, localStorage) {
   }
 }
 
-AuthInterceptor.$inject = ['$q', '$location', 'localStorageService'];
+AuthInterceptor.$inject = ['$q', '$location', 'localStorageService', '$rootScope'];
 app.factory('AuthInterceptor', AuthInterceptor);
